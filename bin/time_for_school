@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+# require 'pry'
 require_relative "../lib/user.rb"
 require_relative "../lib/teacher.rb"
 require_relative "../lib/student.rb"
@@ -8,13 +8,35 @@ steve = Student.new
 steve.first_name = "Steve"
 steve.last_name = "Jobs"
 
+lolo = Student.new
+lolo.first_name = "Lauren"
+lolo.last_name = "Birts"
+
 avi = Teacher.new
 avi.first_name = "Avi"
 avi.last_name = "Flombaum"
 
 
 some_knowledge = avi.teach 
+some_new_knowledge = avi.teach
+something_diff = avi.teach
 
 steve.learn(some_knowledge)
+steve.learn(some_new_knowledge)
+lolo.learn(something_diff)
 
 puts "Steve just learned this important knowledge: '#{steve.knowledge.first}' from Avi"
+puts "Steve just learned this important knowledge: '#{steve.knowledge.last}' from Avi"
+puts "#{lolo.first_name} just learned this important knowledge: '#{lolo.knowledge.first}' from #{avi.first_name}"
+
+jim = User.new
+jim.first_name = "Jim"
+jim.last_name = "Hankerbottom"
+
+puts "Hi, my name is #{jim.first_name} #{jim.last_name}, I am here to audit a few classes"
+
+# wont work because learn is specific to the student class
+# jim.learn(some_knowledge) 
+
+# binding.pry
+# 0
